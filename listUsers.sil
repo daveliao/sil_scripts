@@ -1,0 +1,16 @@
+// list active users - this should work for Jira too
+
+// if you're querying for all active users, change group to confluence-users
+string [] confluenceUsers = usersInGroups("administrators");
+string file = "reporting/users.csv";
+
+if(fileExists(file)) { deleteFile(file); runnerLog("Deleted file " + file); }
+createFile(file);
+
+runnerLog("Starting export…");
+
+for(string cu in confluenceUsers) {
+    printInFile(file, cu + "," + userFullName(cu) + "," + userEmailAddress(cu));
+}
+
+runnerLog("Finished export.");

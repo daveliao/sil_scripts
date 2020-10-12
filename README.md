@@ -1,2 +1,2 @@
 # sil_scripts
-My collection of Power Scripts SIL scripts.
+My SIL recipes, for use in Power Scripts.
